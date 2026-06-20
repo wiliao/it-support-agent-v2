@@ -40,6 +40,9 @@ backend/*.iml
 backend/*.ipr
 backend/*.iws
 
+# Log files
+backend/logs/
+
 # ========================
 # React / TypeScript / Frontend
 # ========================

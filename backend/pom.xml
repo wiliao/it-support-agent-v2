@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>com.itsupport</groupId>
-    <artifactId>it-support-agent</artifactId>
+    <artifactId>it-support-agent-v2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>IT Support Ticket Manager Agent</name>
+    <name>IT Support Ticket Manager Agent v2</name>
     <description>AI-powered IT support ticket management using Spring AI</description>
 
     <properties>
@@ -62,13 +62,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Redis Client -->
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>5.1.0</version>
-        </dependency>
-
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -86,6 +79,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
             <version>1.14.1</version>
+        </dependency>
+
+        <!-- Netty DNS native support for macOS -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver-dns-native-macos</artifactId>
+            <classifier>osx-aarch_64</classifier>
         </dependency>
 
         <!-- Test -->

@@ -6,7 +6,7 @@ import org.springframework.ai.vectorstore.redis.RedisVectorStore.MetadataField;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import redis.clients.jedis.JedisPooled;
+import redis.clients.jedis.RedisClient;
 
 @Configuration
 public class VectorStoreConfig {
@@ -21,24 +21,24 @@ public class VectorStoreConfig {
     private String redisPassword;
 
     @Bean
-    public JedisPooled jedisPooled() {
+    public RedisClient redisClient() {
         if (redisPassword != null && !redisPassword.isBlank()) {
-            return new JedisPooled(redisHost, redisPort, null, redisPassword);
+            return RedisClient.create(redisHost, redisPort, redisPassword, "");
         }
-        return new JedisPooled(redisHost, redisPort);
+        return RedisClient.create(redisHost, redisPort);
     }
 
     @Bean
-    public RedisVectorStore vectorStore(JedisPooled jedisPooled, EmbeddingModel embeddingModel) {
-        return RedisVectorStore.builder(jedisPooled, embeddingModel)
+    public RedisVectorStore vectorStore(RedisClient redisClient, EmbeddingModel embeddingModel) {
+        return RedisVectorStore.builder(redisClient, embeddingModel)
                 .indexName("it-support-tickets")
                 .initializeSchema(true)
                 .metadataFields(
-                        MetadataField.tag("category"),  // for search(query, category)
-                        MetadataField.tag("id"),        // for getById()
-                        MetadataField.text("issue"),       // ✅ add
-                        MetadataField.text("resolution"),  // ✅ add
-                        MetadataField.text("keywords")     // ✅ add
+                        MetadataField.tag("category"),
+                        MetadataField.tag("id"),
+                        MetadataField.text("issue"),
+                        MetadataField.text("resolution"),
+                        MetadataField.text("keywords")
                 )
                 .build();
     }

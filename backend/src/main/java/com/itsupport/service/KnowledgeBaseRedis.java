@@ -10,6 +10,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
@@ -51,6 +52,12 @@ public class KnowledgeBaseRedis implements KnowledgeBaseProvider {
 
     private final VectorStore vectorStore;
 
+    @Value("${spring.data.redis.host:localhost}")
+    private String redisHost;
+
+    @Value("${spring.data.redis.port:6379}")
+    private int redisPort;
+
     // CSV column names — must match the header row in kb-sample-data.csv
     private static final String COL_ID         = "id";
     private static final String COL_CATEGORY   = "category";
@@ -90,7 +97,14 @@ public class KnowledgeBaseRedis implements KnowledgeBaseProvider {
                 log.info("Redis KB ready – entries already indexed, skipping seed load"); // ✅ no size
             }
         } catch (Exception e) {
-            log.warn("Could not probe Redis KB (may not be ready yet): {}", e.getMessage());
+            String errorMsg = e.getMessage();
+            String rootCause = e.getCause() != null ? e.getCause().getMessage() : "No root cause";
+            
+            log.warn("Could not probe Redis KB (may not be ready yet)");
+            log.warn("  Error: {}", errorMsg);
+            log.warn("  Root cause: {}", rootCause);
+            log.warn("  Ensure Redis is running on {}:{} and embedding model (oMLX) is available", redisHost, redisPort);
+            log.debug("Full stack trace:", e);
         }
     }
 

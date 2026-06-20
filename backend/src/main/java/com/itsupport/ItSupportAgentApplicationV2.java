@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ItSupportAgentApplication {
+public class ItSupportAgentApplicationV2 {
     public static void main(String[] args) {
-        SpringApplication.run(ItSupportAgentApplication.class, args);
+        SpringApplication.run(ItSupportAgentApplicationV2.class, args);
     }
 }
