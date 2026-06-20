@@ -1,0 +1,46 @@
+id,category,issue,resolution,keywords
+KB-001,PASSWORD_RESET,"User cannot log in, password expired or forgotten","1. Go to https://sso.company.com/reset
+2. Enter company email
+3. Check phone for SMS code
+4. Set new password (8+ chars, uppercase, number, symbol)
+5. Contact IT if locked after 3 attempts","password,login,locked,forgot,reset,expired"
+KB-002,VPN,"VPN connection fails or drops","1. Ensure GlobalProtect v6+ installed
+2. Disconnect/reconnect VPN
+3. Switch gateway: Settings > Gateway > nearest region
+4. Flush DNS: ipconfig /flushdns
+5. Restart GlobalProtect service","vpn,globalprotect,network,remote,connection,disconnect"
+KB-003,SOFTWARE_INSTALL,"Requesting software installation or license","1. Raise request at https://itportal.company.com/software
+2. Manager approval required for paid licenses
+3. Wait for email with install link
+4. Standard apps via Software Center
+5. Allow 1 business day","install,software,license,download,app"
+KB-004,EMAIL_ISSUE,"Outlook not syncing, emails delayed or not sending","1. Check Office 365 status
+2. Outlook: File > Account Settings > Repair
+3. Clear cache: delete %localappdata%\Microsoft\Outlook\*.ost
+4. Restart Outlook, allow sync time
+5. Try OWA incognito mode","email,outlook,mail,sync,send,office365"
+KB-005,PRINTER,"Printer not found, offline, or print job stuck","1. Check printer power/network
+2. Cancel jobs: Settings > Printers > right-click > Cancel all
+3. Restart Print Spooler service
+4. Re-add printer by IP
+5. Floor printers: IP range 10.0.5.x","printer,print,offline,stuck,queue,spooler"
+KB-006,NETWORK_ACCESS,"No internet access or network drive not accessible","1. Check cable/Wi-Fi
+2. Run Network Troubleshooter
+3. ipconfig /release && /renew
+4. Map drive: \\fileserver\share
+5. New devices need IT provisioning","network,internet,drive,wifi,ethernet,share"
+KB-007,HARDWARE_ISSUE,"Laptop slow, freezing, or hardware malfunction","1. Full restart
+2. Ensure 15%+ free disk space
+3. Run Windows Update
+4. Check Task Manager for resource hogs
+5. Hardware failures: submit request with asset tag","slow,freeze,laptop,hardware,battery,screen"
+KB-008,ACCOUNT_ACCESS,"Cannot access system, application, or shared folder","1. Verify role requires access
+2. Request via https://itportal.company.com/access
+3. Manager approval required
+4. Standard: 1 business day
+5. Urgent: mark URGENT, escalate to IT BP","access,permission,denied,role,sharepoint,jira"
+KB-009,SECURITY,"Suspicious email, phishing, or security incident","1. DO NOT click links/attachments
+2. Forward as attachment to security@company.com
+3. If clicked: disconnect + call ext. 5555
+4. Compromised creds: reset at sso.company.com/reset
+5. Security responds within 1 hour","phishing,suspicious,malware,security,scam,breach"

@@ -1,0 +1,112 @@
+.page { animation: fadeIn 0.3s ease; }
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+
+.pageHeader { margin-bottom: 2rem; }
+.pageTitle { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.pageSubtitle { color: var(--text-secondary); font-size: 0.85rem; }
+
+.errorBanner {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1.5rem;
+  background: rgba(255,77,106,0.1); border: 1px solid rgba(255,77,106,0.4);
+  color: var(--red); font-size: 0.85rem;
+}
+
+.form { display: flex; flex-direction: column; gap: 1.25rem; }
+.formRow { display: flex; flex-direction: column; gap: 0.4rem; }
+.label { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+.required { color: var(--red); }
+
+.input, .textarea, .select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0,212,200,0.08);
+}
+.input::placeholder, .textarea::placeholder { color: var(--text-muted); }
+.textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+.select { cursor: pointer; }
+.select option { background: var(--bg-2); }
+
+.submitBtn {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: var(--teal);
+  color: var(--bg);
+  border: none; border-radius: 6px;
+  font-size: 0.9rem; font-weight: 700;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+  transition: all 0.15s;
+  margin-top: 0.5rem;
+}
+.submitBtn:hover:not(:disabled) { background: #00f0e0; box-shadow: 0 0 20px rgba(0,212,200,0.3); }
+.submitBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btnSpinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(10,14,20,0.3);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+/* Sidebar */
+.sidebar { display: flex; flex-direction: column; gap: 1rem; }
+.sideCard {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+.sideTitle {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--text-secondary);
+  margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.samples { display: flex; flex-direction: column; gap: 0.4rem; }
+.sampleBtn {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 4px; padding: 0.6rem 0.8rem;
+  color: var(--text-secondary); font-size: 0.8rem;
+  text-align: left; width: 100%;
+  transition: all 0.15s;
+}
+.sampleBtn:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-glow); }
+.sampleIcon { color: var(--teal); font-size: 0.9rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+.steps { display: flex; flex-direction: column; gap: 0.8rem; }
+.step { display: flex; align-items: flex-start; gap: 0.8rem; }
+.stepIcon {
+  width: 28px; height: 28px; flex-shrink: 0;
+  background: var(--teal-glow); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; color: var(--teal);
+}
+.stepLabel { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+.stepDesc { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
+
+.pocNotice {
+  background: rgba(77,143,255,0.06); border: 1px solid rgba(77,143,255,0.3);
+  border-radius: 6px; padding: 0.9rem;
+  display: flex; gap: 0.7rem; align-items: flex-start;
+}
+.pocBadge {
+  background: rgba(77,143,255,0.2); color: var(--blue);
+  font-size: 0.65rem; font-weight: 700; font-family: var(--font-mono);
+  padding: 0.15rem 0.4rem; border-radius: 3px;
+  flex-shrink: 0; margin-top: 0.1rem;
+}
+.pocNotice p { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
